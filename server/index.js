@@ -1,4 +1,6 @@
 // This file will us to run our server
+import dotenv from "dotenv";
+dotenv.config();
 
 const express = require("express");
 
