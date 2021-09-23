@@ -1,2 +1,5 @@
 //env files
 config.env
+
+//mongoURI
+/default.json
