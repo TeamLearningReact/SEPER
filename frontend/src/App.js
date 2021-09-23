@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+//Router - look up Book Application tutorial to see how to import Router
+
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SubmitArticle from './components/SubmitArticle';
+
+class App extends Component {
+
+  render() {
+
+    //set up JSX
+    return(
+      <Router>
+        <div>
+          <h2>This is the home page</h2>
+          <Route path = '/submit-article' component={SubmitArticle} />
+        </div>
+      </Router>
+    )
+
+  }
 }
 
 export default App;

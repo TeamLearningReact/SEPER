@@ -1,17 +1,25 @@
-// This file will us to run our server
-import dotenv from "dotenv";
-dotenv.config();
+//our server
+const express = require('express');
+const connectDB = require('./config/db');
+var cors = require('cors');
+const mongoose  = require('mongoose');
 
-const express = require("express");
-
-const PORT = process.env.PORT || 3001;
 const app = express();
 
-// This has to g before the listen function
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server! ^-^" });
-});
+//importing routes
+const routes = require('./routes/api');
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on ${PORT}`);
-});
+// Connect Database
+connectDB();
+
+// cors
+app.use(cors({ origin: true, credentials: true }));
+
+// Init Middleware
+app.use(express.json({ extended: false }));
+
+const port = process.env.PORT || 3001;
+
+app.use('/', routes);
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
