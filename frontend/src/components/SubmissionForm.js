@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
+
 const SubmissionForm = () => {
     const { register, handleSubmit, formState: { errors }} = useForm({
         mode: 'onBlur',
     });
     const [result, setResult] = useState("");
 
-    const onSubmit = (values) => console.log(values);
+    const onSubmit = (data) => setResult(JSON.stringify(data));
+        
 
     return(
         <div className="form-container">
@@ -54,5 +56,4 @@ const SubmissionForm = () => {
     );
 
 }
-
 export default SubmissionForm;

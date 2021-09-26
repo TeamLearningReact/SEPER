@@ -1,12 +1,11 @@
 //OLD ONE
 import React, { Component } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+
 
 class SubmitArticle extends Component {
+
     constructor(){
         super();
         this.state = {
@@ -19,6 +18,8 @@ class SubmitArticle extends Component {
             evidence_level:''
         };
     }
+
+    
 
     //responsible for updating the states.
     handleChange = (event) => {
