@@ -6,13 +6,8 @@ const router = express.Router();
 const ArticlePost = require('../models/articles');
 
 //root route
-router.get('/', (req, res) => {
-    res.send('This is the main page!');
-})
-
 //see if database objects are appearing on page & console
-//localhost:3001/api should see this
-router.get("/api", (req, res) => {
+router.get("/", (req, res) => {
     
     ArticlePost.find({ })
         .then((data) => {
@@ -24,13 +19,26 @@ router.get("/api", (req, res) => {
         });
 });
 
-//another test to see if data is showing up on page
-router.get('/name', (req, res) => {
-    const data = {
-        username: 'kim',
-        age: 24
-    };
-    res.json(data);
+//define POST request
+//save new data into our database
+router.post("/save", (req, res) => {
+
+    console.log('Body: ', req.body);
+    const data = req.body;
+
+    const newArticlePost = new ArticlePost(data);
+
+    newArticlePost.save((error) => {
+        if(error) {
+            res.status(500).json({ msg: 'sorry, internal server errors' });
+        }else{
+            res.json({
+                msg: 'Your data has been saved!!!'
+            });
+        
+        }
+    });
+    
 });
 
 module.exports = router;
