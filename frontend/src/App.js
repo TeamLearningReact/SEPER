@@ -18,7 +18,7 @@ class App extends Component {
           <h1>Software Engineering Practice Evidence Repository (SERPER)</h1>
           <ul className="header">
             <li><NavLink exact to ="/">Home</NavLink></li>
-            <li><NavLink to = "/SubmitArticle">Submit an Article</NavLink></li>
+            <p><li><NavLink to = "/SubmitArticle">Submit an Article</NavLink></li></p>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home}/>

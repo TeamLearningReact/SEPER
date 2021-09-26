@@ -12,6 +12,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 h1, h2, p, ul, li{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -23,4 +24,15 @@ ul.header li {
 
 form {
   display:inline-block;
+  padding: 30px 50px;
+  margin: 20px 0px;
+  border: 10px solid #dedede;
+  flex-direction: column;
+  
 }
+
+button{
+  background-color: lightblue;
+  color: white;
+}
+
