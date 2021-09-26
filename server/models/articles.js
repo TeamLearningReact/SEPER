@@ -1,9 +1,10 @@
 //Schema
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 const ArticleSchema = new Schema({
+
     title: {
         type: String,
         required: true
@@ -37,6 +38,9 @@ const ArticleSchema = new Schema({
 });
 
 //Model
-const ArticlePost = mongoose.model('ArticlePost', ArticleSchema);
+const ArticlePost = mongoose.model("ArticlePost", ArticleSchema);
+
+
 
 module.exports = ArticlePost;
+
