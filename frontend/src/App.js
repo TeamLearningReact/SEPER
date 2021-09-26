@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 import SubmitArticle from './components/SubmitArticle';
+import SubmissionForm from './components/SubmissionForm';
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
       <Router>
         <div>
           <h2>This is the home page</h2>
-          <Route path = '/submit-article' component={SubmitArticle} />
+          <Route path = '/submit-article' component={SubmissionForm} />
         </div>
       </Router>
     )
