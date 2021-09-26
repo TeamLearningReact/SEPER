@@ -1,10 +1,13 @@
 import React, { useMemo } from 'react'
-import { useTable, useSortBy, useGlobalFilter} from 'react-table'
+import { useTable, useSortBy, useGlobalFilter, useFilters} from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS } from './columns'
 import './table.css'
+import { Filter, SelectColumnFilter, NumberRangeColumnFilter} from './filters';
 import { GlobalFilter } from './GlobalFilter'
 import { Checkbox } from './Checkbox'
+import { Input } from "reactstrap";
+
 
 export const SortingTable = () => {
 
@@ -24,14 +27,18 @@ export const SortingTable = () => {
         getToggleHideAllColumnsProps
     } = useTable({
         columns,
-        data
-    }, useGlobalFilter, useSortBy)
+        data,
+        selectColumn: { Filter: SelectColumnFilter },
+    }, useGlobalFilter, useFilters,useSortBy)
 
+
+    const generateSortingIndicator = column => {
+        return column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : ""
+      }
     const { globalFilter } = state
-
+    //<GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
     return (
         <>
-        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter}/>
         <div>
             {
                 allColumns.map(column => (
@@ -45,25 +52,21 @@ export const SortingTable = () => {
             }
         </div>
         <table {...getTableProps()}>
-            <thead>
-                {
-                    headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {
-                            headerGroup.headers.map((column) => (
-                                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                                    {column.render('Header')}
-                                    <span>
-                                        {column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}
-                                    </span>
-                                </th>
-                            ))
-                        }
-                    </tr>
-                    ))
-                }
-                
-            </thead>
+        <thead>
+            {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>
+                    <div {...column.getSortByToggleProps()}>
+                    {column.render('Header')}
+                    {generateSortingIndicator(column)}
+                    </div>
+                    <Filter column={column} />
+                </th>
+                ))}
+            </tr>
+        ))}
+      </thead>
             <tbody {...getTableBodyProps()}>
                 {
                     rows.map(row => {

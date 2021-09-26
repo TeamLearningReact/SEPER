@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 import SubmitArticle from './components/SubmitArticle';
-import {SortingTable} from './components/SortingTable';
+import { SortingTable } from './components/SortingTable';
 
 class App extends Component {
 
