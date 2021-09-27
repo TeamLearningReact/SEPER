@@ -1,16 +1,16 @@
 import React from "react";
-import SubmissionForm from "../components/SubmissionForm";
+import SubmitArticle from "../components/SubmitArticle";
 
-const SubmitArticle = () => {
+const SubmitArticleTo = () => {
     return(
         <div>
             <h2>Submit Article</h2>
             <p>This will be a form to allow submitters to submit an article for possible inclusion
                 in our SERPER repo.
             </p>
-            <SubmissionForm/>
+            <SubmitArticle/>
         </div>
     )
 }
 
-export default SubmitArticle;
+export default SubmitArticleTo;
