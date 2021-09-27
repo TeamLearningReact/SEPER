@@ -15,6 +15,7 @@ code {
 
 h1, h2, p, ul, li{
   font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
 }
 
 ul.header li {
@@ -22,17 +23,37 @@ ul.header li {
   list-style-type: none;
 }
 
-form {
-  display:inline-block;
+/* input {
+  box-sizing: border-box;
   padding: 30px 50px;
-  margin: 20px 0px;
-  border: 10px solid #dedede;
-  flex-direction: column;
-  
+  width: 100%;
+} */
+
+.form-inline{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 }
 
-button{
-  background-color: lightblue;
-  color: white;
+.form-inline input{
+  margin: 5px 10px 5px 0;
+  padding: 10px;
 }
+
+form{
+  border: 10px solid #dedede;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 30px 50px;
+}
+
+/* form {
+  display:inline-block;
+  padding: 30px 50px;
+  margin: 0 auto;
+  border: 10px solid #dedede;
+  justify-content: space-around;
+  max-width: 500px;
+  
+} */
 

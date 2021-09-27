@@ -1,9 +1,7 @@
 //Schema
-
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-const ArticleSchema = new Schema({
+const ArticleSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -22,21 +20,19 @@ const ArticleSchema = new Schema({
     doi: {
         type: String
     },
-    claim: {
-        type: String,
-        required: true
-    },
-    evidence_level: {
-        type: String,
-        required: true
-    },
+    // claim: {
+    //     type: String,
+    //     required: true
+    // },
+    // evidence_level: {
+    //     type: String
+    // },
     SE_practice: {
-        type: String,
-        required: true
+        type: String
     }
 });
 
-//Model
+//Model - 1st argument is the name you will see on MongoDB
 const ArticlePost = mongoose.model('ArticlePost', ArticleSchema);
 
 module.exports = ArticlePost;
