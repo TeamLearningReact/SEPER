@@ -4,7 +4,7 @@ class Home extends Component{
     render(){
         return(
             <div>
-                <h2>Welcome to SERPER!</h2>
+                <h2>Welcome to SEPER!</h2>
             </div>
         )
     }
