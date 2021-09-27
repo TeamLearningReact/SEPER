@@ -14,10 +14,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <h1>Software Engineering Practice Evidence Repository (SERPER)</h1>
+          <h1>Software Engineering Practice Evidence Repository (SEPER)</h1>
           <ul className="header">
             <li><NavLink exact to ="/">Home</NavLink></li>
             <p><li><NavLink to = "/SubmitArticle">Submit an Article</NavLink></li></p>
+            <p><li><NavLink to = "/view-article">SE Practice</NavLink></li></p>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home}/>
