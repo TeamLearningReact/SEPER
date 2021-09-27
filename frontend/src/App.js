@@ -5,7 +5,7 @@ import { SortingTable } from "./components/SortingTable";
 import React, { Component } from 'react';
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import './App.css';
-import SubmitArticle from "./pages/Submit-Article";
+import SubmitArticleTo from './pages/ArticleSubmission';
 import Home from "./pages/Home";
 
 class App extends Component {
@@ -19,11 +19,11 @@ class App extends Component {
           <h1>Software Engineering Practice Evidence Repository (SERPER)</h1>
           <ul className="header">
             <li><NavLink exact to ="/">Home</NavLink></li>
-            <li><NavLink to = "/SubmitArticle">Submit an Article</NavLink></li>
+            <p><li><NavLink to = "/SubmitArticle">Submit an Article</NavLink></li></p>
           </ul>
           <div className="content">
             <Route exact path="/" component={Home}/>
-          <Route path = '/SubmitArticle' component={SubmitArticle}/>
+          <Route path = '/SubmitArticle' component={SubmitArticleTo}/>
         </div>
         </div>
       </Router>

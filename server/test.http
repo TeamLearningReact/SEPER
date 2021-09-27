@@ -1,0 +1,13 @@
+POST http://localhost:3001/api/save
+Content-Type: application/json
+
+{
+    "title":"Hello",
+    "author":"AuthorTest",
+    "source":"sourceTest",
+    "year":"01/01/2000",
+    "doi":"test",
+    "SE_practice":"TDD"
+    
+    
+}

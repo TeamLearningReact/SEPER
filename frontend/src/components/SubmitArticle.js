@@ -1,5 +1,6 @@
 //OLD ONE
 import React, { Component } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 import '../App.css';
 import axios from 'axios';
 
@@ -7,165 +8,179 @@ import axios from 'axios';
 class SubmitArticle extends Component {
 
     constructor(){
-        super();
+        super()
         this.state = {
             title:'',
             author:'',
             source:'',
             year:'',
             doi:'',
-            claim:'',
-            evidence_level:''
-        };
+            SE_practice:'',
+            titleError:'',
+            authorError:''
+        }
+        this.changeTitle = this.changeTitle.bind(this);
+        this.changeAuthor = this.changeAuthor.bind(this);
+        this.changeSource = this.changeSource.bind(this);
+        this.changeYear = this.changeYear.bind(this);
+        this.changeDoi = this.changeDoi.bind(this);
+        this.changeSE_Practice = this.changeSE_Practice.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    
-
-    //responsible for updating the states.
-    handleChange = (event) => {
-        //const { name, value } = target;
-        const target = event.target;
-        const name = target.name;
-        const value = target.value;
-
-        //dynamically pass values coming from form inputs
+    changeTitle(event){
         this.setState({
-            [name]: value
-        });
-
-    };
-
-    submit = (event) => {
-        event.preventDefault();
-        const payload = {
-            title: this.state.title,
-            author: this.state.author,
-            source: this.state.source,
-            year: this.state.year,
-            doi: this.state.doi,
-            claim: this.state.claim,
-            evidence_level: this.state.evidence_level 
-        };
-
-        //send data to the server via POST request
-        
-            /*.post('/save', payload)
-            .then((res) => {
-                console.log(res.data);
-                this.setState({
-                    title:'',
-                    author:'',
-                    source:'',
-                    year:'',
-                    doi:'',
-                    claim:'',
-                    evidence_level:''
-                })
-                console.log('Data has been sent to the server');
-                
-            })
-            .catch((error) => {
-                console.log('Error in Submit article!');
-            })*/
-        
-        axios({
-            url:'/save',
-            method:'POST',
-            data: payload
+            title:event.target.value
         })
-             .then(() => {
-                console.log('Data has been sent to the server');
-            })
-            .catch(() => {
-                console.log('Internal server error');
-            });
-            
+    }
+    changeAuthor(event){
+        this.setState({
+            author:event.target.value
+        })
+    }
+    changeSource(event){
+        this.setState({
+            source:event.target.value
+        })
+    }
+    changeYear(event){
+        this.setState({
+            year:event.target.value
+        })
+    }
+    changeDoi(event){
+        this.setState({
+            doi:event.target.value
+        })
+    }
+    changeSE_Practice(event){
+        this.setState({
+            SE_practice:event.target.value
+        })
+    }
 
+    validate = () => {
+        let titleError='';
+        let authorError='';
+
+        if(!this.state.title){
+            titleError = "Title cannot be blank";
+        }
+
+        if(!this.state.author){
+            authorError = "Author cannot be blank";
+        }
+
+        if(titleError || authorError){
+            this.setState({ titleError, authorError });
+            return false;
+        }
+        return true;
     };
+
+    onSubmit(event){
+        event.preventDefault();
+
+        const isValid = this.validate();
+        if(isValid) {
+            const registered = {
+                title:this.state.title,
+                author:this.state.author,
+                source:this.state.source,
+                year:this.state.year,
+                doi:this.state.doi,
+                SE_practice:this.state.SE_practice
     
+            }
+    
+            axios.post('http://localhost:3001/api/save', registered)
+                .then(res => console.log(res.data))
+    
+            this.setState({
+                title:'',
+                author:'',
+                source:'',
+                year:'',
+                doi:'',
+                SE_practice:'',
+                titleError:'',
+                authorError:''
+            })
+
+        }
+
+        
+    }
 
     render(){
         
         console.log('State', this.state);
         return(
-            
-            <div className="form-container">
-                <h2>This is the submit article page.
-                        Where users can submit their article.
-                </h2>
-                <form onSubmit={this.submit}>
-                    <div className="form-input">
-                    <input 
-                    type="text"
-                    name="title"
-                    placeholder="Title"
-                    value={this.state.title}
-                    //placeholder
-                    onChange={this.handleChange}
-                    />
+
+            <div>
+                <div className='container'>
+                    <div className='form-div'>
+                        <form onSubmit={this.onSubmit}>
+                            <input type = 'text'
+                            placeholder='title'
+                            onChange={this.changeTitle}
+                            value={this.state.title}
+                            className='form-control form-group'
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                                {this.state.titleError}</div>
+
+                            <input type = 'text'
+                            placeholder='author'
+                            onChange={this.changeAuthor}
+                            value={this.state.author}
+                            className='form-control form-group'
+                            />
+                            <div style={{ fontSize: 12, color: "red" }}>
+                                {this.state.authorError}</div>
+
+                            <input type = 'text'
+                            placeholder='source'
+                            onChange={this.changeSource}
+                            value={this.state.source}
+                            className='form-control form-group'
+                            />
+
+                            <input type = 'text'
+                            placeholder='year'
+                            onChange={this.changeYear}
+                            value={this.state.year}
+                            className='form-control form-group'
+                            />
+
+                            <input type = 'text'
+                            placeholder='doi'
+                            onChange={this.changeDoi}
+                            value={this.state.doi}
+                            className='form-control form-group'
+                            />
+
+                            <select>
+                                <option>Select SE Practice...</option>
+                                <option 
+                                onChange={this.changeSE_Practice}
+                                value={this.state.SE_practice}>
+                                    TDD
+                                </option>
+                                <option 
+                                onChange={this.changeSE_Practice}
+                                value={this.state.SE_practice}>
+                                    Mob Programming
+                                </option>
+                            </select>
+
+                            <p><input type='submit' className='btn btn-danger btn-block' value='Submit'/></p>
+
+                        </form>
+
                     </div>
-                    <div className="form-input">
-                    <input 
-                    type="text"
-                    name="author"
-                    placeholder="Author"
-                    value={this.state.author}
-                    //placeholder
-                    onChange={this.handleChange}
-                    />
-                    </div>
-                    <div className="form-input">
-                    <input 
-                    type="text"
-                    name="source"
-                    placeholder="Source"
-                    value={this.state.source}
-                    //placeholder
-                    onChange={this.handleChange}
-                    />
-                    </div>
-                    <div className="form-input">
-                    <input 
-                    type="text"
-                    name="year"
-                    placeholder="Published Year"
-                    value={this.state.year}
-                    //placeholder
-                    onChange={this.handleChange}
-                    />
-                    </div>
-                    <div className="form-input">
-                    <input 
-                    type="text"
-                    name="doi"
-                    placeholder="DOI"
-                    value={this.state.doi}
-                    //placeholder
-                    onChange={this.handleChange}
-                    />
-                    </div>
-                    <div className="form-input">
-                    <input 
-                    type="text"
-                    name="claim"
-                    placeholder="What is the Claim?"
-                    value={this.state.claim}
-                    //placeholder
-                    onChange={this.handleChange}
-                    />
-                    </div>
-                    <div className="form-input">
-                    <input 
-                    type="text"
-                    name="evidence_level"
-                    placeholder="Evidence Level"
-                    value={this.state.evidence_level}
-                    //placeholder
-                    onChange={this.handleChange}
-                    />
-                    </div>
-                    <button>Submit</button>
-                </form>
+
+                </div>
             </div>
     
         );
