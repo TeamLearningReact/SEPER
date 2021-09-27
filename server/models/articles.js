@@ -36,3 +36,5 @@ const ArticleSchema = new mongoose.Schema({
 const ArticlePost = mongoose.model('ArticlePost', ArticleSchema);
 
 module.exports = ArticlePost;
+
+
