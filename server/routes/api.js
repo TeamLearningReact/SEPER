@@ -41,5 +41,9 @@ router.post("/save", (req, res) => {
     
 });
 
+router.get("/articles", (req, res) => {
+    ArticlePost.find().then(foundArticles => res.json(foundArticles))
+})
+
 
 module.exports = router;

@@ -59,5 +59,6 @@ export const COLUMNS = [
     accessor: "practice",
     Filter: SelectColumnFilter,
     filter: "equals",
+    isVisible: false,
   },
 ];
