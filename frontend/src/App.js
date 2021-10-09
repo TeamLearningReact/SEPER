@@ -26,7 +26,6 @@ class App extends Component {
                 Development) indeed do help you to develop better software
                 applications? Well click on the link below to find out!
               </p>
-              {/* <span style={{ padding: 30 }}> </span> */}
               <button>
                 <NavLink to="/view-article">SE Practice</NavLink>
               </button>
