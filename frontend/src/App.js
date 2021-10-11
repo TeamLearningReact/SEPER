@@ -20,7 +20,7 @@ class App extends Component {
                 Home
               </NavLink>
             </li> */}{" "}
-            <p style={{ color: "green" }}>
+            <p style={{ color: "" }}>
               <p style={{ fontSize: 20 }}>
                 Have you ever wonder if practices such as TDD (Test Driven
                 Development) indeed do help you to develop better software
@@ -30,7 +30,7 @@ class App extends Component {
                 <NavLink to="/view-article">SE Practice</NavLink>
               </button>
             </p>
-            <p style={{ color: "green" }}>
+            <p style={{ color: "" }}>
               <p style={{ fontSize: 23 }}>
                 {" "}
                 Do you have the an article which you think it should be here? If
