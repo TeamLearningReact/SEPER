@@ -122,7 +122,7 @@ class SubmitArticle extends Component {
                     <div className='form-div'>
                         <form onSubmit={this.onSubmit}>
                             <input type = 'text'
-                            placeholder='title'
+                            placeholder='Title*'
                             onChange={this.changeTitle}
                             value={this.state.title}
                             className='form-control form-group'
@@ -131,7 +131,7 @@ class SubmitArticle extends Component {
                                 {this.state.titleError}</div>
 
                             <input type = 'text'
-                            placeholder='author'
+                            placeholder='Author*'
                             onChange={this.changeAuthor}
                             value={this.state.author}
                             className='form-control form-group'

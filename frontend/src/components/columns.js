@@ -7,7 +7,7 @@ export const COLUMNS = [
   {
     Header: "Id",
     Footer: "Id",
-    accessor: "id",
+    accessor: "_id",
     disableFilters: true,
   },
   {
@@ -19,7 +19,7 @@ export const COLUMNS = [
   {
     Header: "Authors",
     Footer: "Authors",
-    accessor: "authors",
+    accessor: "gender",
     disableFilters: true,
   },
   {
