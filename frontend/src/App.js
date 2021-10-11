@@ -6,10 +6,17 @@ import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
 import "./App.css";
 import SubmitArticleTo from "./pages/ArticleSubmission";
 import Home from "./pages/Home";
+import { COLUMNS } from "./components/columns";
+import { Table } from "reactstrap";
+import ArticleTable from "./components/ArticleTable";
+
+
+
 
 class App extends Component {
   render() {
     //set up JSX
+    
     return (
       <Router>
         <div>
@@ -44,7 +51,7 @@ class App extends Component {
           <div className="content">
             <Route exact path="/" component={Home} />
             <Route path="/SubmitArticle" component={SubmitArticleTo} />
-            <Route path="/view-article" component={SortingTable} />
+            <Route path="/view-article" component={ArticleTable} />
           </div>
         </div>
       </Router>

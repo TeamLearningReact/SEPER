@@ -30,9 +30,8 @@ form{
   background-color:powderblue;
 }
 
-.form-div input, select{
-  margin: 5px;
-  
+label{
+  display: inline-flex;
 } 
 
 

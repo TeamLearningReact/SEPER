@@ -7,9 +7,13 @@ const dotenv = require("dotenv");
 const path = require("path");
 
 const app = express();
+const express = require("express");
+const router = express.Router();
 
 //importing routes
-const routes = require("./routes/api");
+const routes = require('./routes/api');
+const ArticlePost = require('./models/articles');
+
 
 dotenv.config();
 
