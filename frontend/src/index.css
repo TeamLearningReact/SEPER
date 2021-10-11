@@ -23,41 +23,15 @@ ul.header li {
   list-style-type: none;
 }
 
-/* input {
-  box-sizing: border-box;
-  padding: 30px 50px;
-  width: 100%;
-} */
-
-.form-inline{
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-
-.form-inline input{
-  margin: 5px 10px 5px 0;
-  padding: 10px;
-}
-
 form{
-  border: 10px solid #dedede;
+  border: 5px solid #dedede;
   flex-direction: column;
-  margin: 0 auto;
-  padding: 30px 50px;
+  padding: 30px 30px;
+  background-color:powderblue;
 }
 
 label{
   display: inline-flex;
-}
+} 
 
-/* form {
-  display:inline-block;
-  padding: 30px 50px;
-  margin: 0 auto;
-  border: 10px solid #dedede;
-  justify-content: space-around;
-  max-width: 500px;
-  
-} */
 
