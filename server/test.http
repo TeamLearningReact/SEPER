@@ -4,8 +4,11 @@ Content-Type: application/json
 {
     "title":"Hello",
     "author":"AuthorTest",
-    "source":"sourceTest",
+    "journalName": "Hello2",
     "year":"01/01/2000",
+    "volume": "4",
+    "number": "1234",
+    "pages": "12-15",
     "doi":"test",
     "SE_practice":"TDD"
     
