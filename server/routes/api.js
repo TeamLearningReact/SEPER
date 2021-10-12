@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
             console.log('error: ', dataerror);
         });
 });
-
+//"heroku-postbuild": "cd frontend && npm install && npm run build"
 //define POST request
 //save new data into our database
 router.post("/save", (req, res) => {
@@ -37,23 +37,5 @@ router.post("/save", (req, res) => {
     }
   });
 });
-
-// router.route("/articles").get((req, res) => {
-//   ArticlePost.find().then((foundArticles) => res.json(foundArticles));
-// });
-
-// router.get("/getarticles", function (req, res, next) {
-//   res.status(200).json({ articles: DUMMY_ARTICLES });
-// });
-
-// router.route("/").get(function (req, res) {
-//   ArticlePost.find(function (err, articledata) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.json(articledata);
-//     }
-//   });
-// });
 
 module.exports = router;

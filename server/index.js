@@ -7,7 +7,6 @@ const dotenv = require("dotenv");
 const path = require("path");
 
 const app = express();
-const express = require("express");
 const router = express.Router();
 
 //importing routes

@@ -9,21 +9,6 @@ import { Checkbox } from "./Checkbox";
 import { Input } from "reactstrap";
 
 export const SortingTable = ({ columns, data }) => {
-  
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   const doFetch = async () => {
-  //     const response = await fetch("/");
-  //     const body = await response.json();
-  //     const contacts = body.results;
-  //     console.log(contacts);
-  //     setData(contacts);
-  //   };
-  //   doFetch();
-  // }, []);
-
-  //const columns = useMemo(() => COLUMNS, []);
-  //const data = useMemo(() => MOCK_DATA, []);
 
   const {
     getTableProps,
