@@ -7,11 +7,16 @@ table {
   table td, table th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: center;
   }
   
-  table tr:nth-child(even){background-color: #f2f2f2;}
+  table tr:nth-child(even){
+    background-color: #f2f2f2;
+  }
   
-  table tr:hover {background-color: #ddd;}
+  table tr:hover {
+    background-color: #ddd;
+  }
   
   table th, tfoot td {
     padding-top: 12px;

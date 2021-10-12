@@ -1,13 +1,13 @@
 //import { format } from 'date-fns'
 //import { SortingTable } from "./SortingTable"
 import React, { useMemo } from "react";
-import { SelectColumnFilter, NumberRangeColumnFilter } from "./filters";
+import { SelectColumnFilter, NumberRangeColumnFilter, YearRangeColumnFilter } from "./filters";
 
 export const COLUMNS = [
   {
     Header: "Id",
     Footer: "Id",
-    accessor: "_id",
+    accessor: "id",
     disableFilters: true,
   },
   {
@@ -19,7 +19,7 @@ export const COLUMNS = [
   {
     Header: "Authors",
     Footer: "Authors",
-    accessor: "gender",
+    accessor: "authors",
     disableFilters: true,
   },
   {
@@ -29,10 +29,35 @@ export const COLUMNS = [
     disableFilters: true,
   },
   {
+    Header: "Journal Name",
+    Footer: "Journal Name",
+    accessor: "journal",
+    disableFilters: true,
+  },
+  {
+    Header: "Volume",
+    Footer: "Volume",
+    accessor: "volume",
+    disableFilters: true,
+  },
+  {
+    Header: "Number",
+    Footer: "Number",
+    accessor: "number",
+    disableFilters: true,
+  },
+  {
+    Header: "Pages",
+    Footer: "Pages",
+    accessor: "pages",
+    disableFilters: true,
+  },
+  {
     Header: "Pub.",
     Footer: "Pub",
     accessor: "pub",
-    Filter: NumberRangeColumnFilter,
+    Filter: YearRangeColumnFilter,
+    //Filter: NumberRangeColumnFilter,
     filter: "between",
   },
   {
