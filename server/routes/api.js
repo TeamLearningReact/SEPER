@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
             console.log('error: ', dataerror);
         });
 });
-
+//"heroku-postbuild": "cd frontend && npm install && npm run build"
 //define POST request
 //save new data into our database
 router.post("/save", (req, res) => {
